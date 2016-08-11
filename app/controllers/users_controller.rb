@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @events = @user.events
   end
 
   def new
@@ -8,8 +9,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.build(user_params)
     if @user.save
+      log_in @user
       redirect_to @user
     else
       render "new"

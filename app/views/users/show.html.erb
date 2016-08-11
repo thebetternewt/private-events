@@ -1,2 +1,12 @@
 <h1><%= @user.username %></h1>
-<p>This is where <%= @user.username %>'s events will be shown.</p>
+<br />
+<%= link_to "Create Event", new_event_path, class: 'btn btn-success' %>
+<br /><br />
+<div class="row">
+  <% if @user.events.any? %>
+    <h4>My Events:</h4>
+    <%= render @events %>
+  <% else %>
+    <p>This is where <%= @user.username %>'s events will be shown.</p>
+  <% end %>
+</div>

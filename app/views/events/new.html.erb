@@ -1,0 +1,22 @@
+<div class="col-md-6 col-md-offset-3">
+  <h1 class="text-center">New Event</h1>
+  <%= form_for @event do |f| %>
+  
+    <%= f.label :name, "Event Name:" %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :location, "Location:" %>
+    <%= f.text_field :location, class: 'form-control' %>
+
+    <%= f.label :begin_date, "Begin Date & Time:" %>
+    <%= f.datetime_field(:begin_date, { min: Date.today, class: 'form-control' }) %>
+
+    <%= f.label :end_date, "End Date & Time:" %>
+    <%= f.datetime_field(:end_date, { min: Date.today, class: 'form-control' }) %>
+
+    <%= f.label :details, "Details:" %>
+    <%= f.text_area(:details, { size: "20x30", class: 'form-control' }) %>
+
+    <%= f.submit "Submit" , class: 'btn btn-primary' %>
+  <% end %>
+</div>

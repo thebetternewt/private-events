@@ -1,0 +1,19 @@
+<div class="col-md-4">
+  <div class="panel panel-default" id="event-<%= event.id %>">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= event.name %></h3>
+    </div>
+    <div class="panel-body">
+      <h5>Where:</h5>
+      <p><%= event.name %></p>
+      <h5>Begin:</h5>
+      <p><%= event.begin_date.strftime("%A, %b %e at %l:%M %P") %></p>
+      <h5>End:</h5>
+      <p><%= event.end_date.strftime("%A, %b %e at %l:%M %P") %></p>
+      <h5>Details:</h5>
+      <p><%= event.details %></p>
+      <h5>Creator:</h5>
+      <p><%= event.creator.username %></p>
+    </div>
+  </div>
+</div>
