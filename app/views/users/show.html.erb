@@ -5,8 +5,18 @@
 <div class="row">
   <% if @user.events.any? %>
     <h4>My Events:</h4>
-    <%= render @events %>
+      <%= render @events %>
   <% else %>
     <p>This is where <%= @user.username %>'s events will be shown.</p>
+  <% end %>
+</div>
+<div class="row">
+  <% if @user.attended_events.any? %>
+    <h4>Attending:</h4>
+    <% @user.attended_events.each do |event| %>
+      <%= render event %>
+    <% end %>
+  <% else %>
+    <p>This is where <%= @user.username %>'s attended events will be shown.</p>
   <% end %>
 </div>

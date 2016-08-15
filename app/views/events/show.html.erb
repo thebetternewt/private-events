@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center"><%= @event.name %></h1>
+    <h3>Where:</h3>
+    <p><%= @event.name %></p>
+    <h3>Begin:</h3>
+    <p><%= @event.begin_date.strftime("%A, %b %e at %l:%M %P") %></p>
+    <h3>End:</h3>
+    <p><%= @event.end_date.strftime("%A, %b %e at %l:%M %P") %></p>
+    <h3>Details:</h3>
+    <p><%= @event.details %></p>
+    <h3>Creator:</h3>
+    <p><%= @event.creator.username %></p>
+    <h3>Attendees:</h3>
+    <% if @event.attendees.any? %>
+      <ul>
+        <% @event.attendees.each do |attendee| %>
+        <li><%= attendee.username %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No attendess to this event yet! Won't you be the first?!</p>
+    <% end %>
+  </div>
+</div>
