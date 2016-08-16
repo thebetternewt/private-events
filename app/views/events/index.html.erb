@@ -1,4 +1,20 @@
 <div class="row">
   <h1>All Events</h1>
-    <%= render @events %>
+  <!-- Upcoming Events -->
+  <h3>Upcoming Events</h3>
+    <% if @upcoming_events.any? %>
+      <%= render @upcoming_events %>
+    <% else %>
+     <p>No upcoming events.</p>
+    <% end %>
+</div>
+
+<div class="row">
+    <!-- Previous Events -->
+    <h3>Past Events</h3>
+    <% if @past_events.any? %>
+      <%= render @past_events %>
+    <% else %>
+     <p>No past events.</p>
+    <% end %>
 </div>

@@ -2,21 +2,49 @@
 <br />
 <%= link_to "Create Event", new_event_path, class: 'btn btn-success' %>
 <br /><br />
+
+<!-- User's created events -->
 <div class="row">
   <% if @user.events.any? %>
-    <h4>My Events:</h4>
+    <h3>My Events:</h3>
       <%= render @events %>
   <% else %>
     <p>This is where <%= @user.username %>'s events will be shown.</p>
   <% end %>
 </div>
+
+<!-- User's attended events -->
 <div class="row">
   <% if @user.attended_events.any? %>
-    <h4>Attending:</h4>
+    <h3>Attending:</h3>
     <% @user.attended_events.each do |event| %>
       <%= render event %>
     <% end %>
   <% else %>
     <p>This is where <%= @user.username %>'s attended events will be shown.</p>
+  <% end %>
+</div>
+
+<!-- User's upcoming events -->
+<div class="row">
+  <% if @upcoming_events.any? %>
+    <h3>Upcoming Events:</h3>
+    <% @upcoming_events.each do |event| %>
+      <%= render event %>
+    <% end %>
+  <% else %>
+    <p>This is where <%= @user.username %>'s upcoming events will be shown.</p>
+  <% end %>
+</div>
+
+<!-- User's previous events -->
+<div class="row">
+  <% if @previous_events.any? %>
+    <h3>Previous Events:</h3>
+    <% @previous_events.each do |event| %>
+      <%= render event %>
+    <% end %>
+  <% else %>
+    <p>This is where <%= @user.username %>'s previous events will be shown.</p>
   <% end %>
 </div>
