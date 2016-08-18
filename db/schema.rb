@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815191924) do
+ActiveRecord::Schema.define(version: 20160816203728) do
 
   create_table "event_attendances", force: :cascade do |t|
     t.integer  "attended_event_id"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20160815191924) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["begin_date", "creator_id"], name: "index_events_on_begin_date_and_creator_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "invitee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["invitee_id"], name: "index_invitations_on_invitee_id"
   end
 
   create_table "users", force: :cascade do |t|

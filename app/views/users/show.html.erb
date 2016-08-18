@@ -3,6 +3,18 @@
 <%= link_to "Create Event", new_event_path, class: 'btn btn-success' %>
 <br /><br />
 
+<!-- User's awaiting invitations -->
+<div class="row" id="invitations">
+  <% if @user.invitations.any? %>
+    <h3>Awaiting Invitations:</h3>
+    <% @user.invitations.each do |invitation| %>
+        <%= render invitation.event if !@user.attending?(invitation.event) %> 
+    <% end %>
+  <% else %>
+    <p>This is where <%= @user.username %>'s events will be shown.</p>
+  <% end %>
+</div>
+
 <!-- User's created events -->
 <div class="row">
   <% if @user.events.any? %>

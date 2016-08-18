@@ -23,3 +23,15 @@
     <% end %>
   </div>
 </div>
+
+<% if @event.creator_id == current_user.id %>
+  <div class="row" style="margin-top:15px">
+    <%= render 'invite' %>
+  </div>
+<% end %>
+
+<% if @event.creator_id != current_user.id && current_user.invited?(@event) && !current_user.attending?(@event) %>
+  <div class="row" style="margin-top:15px">
+    <%= render 'respond' %>
+  </div>
+<% end %>

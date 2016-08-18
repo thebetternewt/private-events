@@ -1,0 +1,11 @@
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for (@event.invitations.build) do |f| %>
+
+    <div><%= hidden_field_tag :event_id, @event.id %></div>
+
+    <%= f.label :invitee_id, "Invite another user to your event:" %>
+    <%= f.collection_select(:invitee_id, User.all, :id, :username, prompt: true, class: 'form-control') %>
+
+    <%= f.submit "Invite User", class: 'btn btn-success' %>
+  <% end %>
+</div>
